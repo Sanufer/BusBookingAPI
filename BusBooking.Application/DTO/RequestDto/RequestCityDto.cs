@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BusBooking.Application.DTO
 {
-    public class CreateCityDto
+    public class RequestCityDto
     {
         public string Name { get; set; } = default!;
     }

@@ -1,6 +1,6 @@
 namespace BusBooking.Application.DTOs.BusOperator
 {
-    public class CreateBusOperatorDto
+    public class RequestBusOperatorDto
     {
         public string Name { get; set; } = default!;
         public string ContactEmail { get; set; } = default!;
