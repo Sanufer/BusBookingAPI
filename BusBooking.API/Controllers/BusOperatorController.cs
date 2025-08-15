@@ -38,7 +38,7 @@ namespace BusBooking.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAsync(CreateBusOperatorDto busOperatorDto)
+        public async Task<IActionResult> AddAsync(RequestBusOperatorDto busOperatorDto)
         {
             if (busOperatorDto == null)
             {

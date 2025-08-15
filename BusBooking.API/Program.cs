@@ -10,13 +10,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BusBookingDbContext>(options =>
    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-builder.Services.AddScoped(typeof(IBusBookingRepository<>), typeof(BusBookingRepository<>));
+builder.Services.AddInfrastructureServices();
+//builder.Services.AddScoped(typeof(IBusBookingRepository<>), typeof(BusBookingRepository<>));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 
 var app = builder.Build();
 

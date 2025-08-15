@@ -26,14 +26,14 @@ namespace BusBooking.API.Controllers
         }
          
         [HttpPost]
-        public async Task<IActionResult> AddCity(CreateCityDto createCityDto)
+        public async Task<IActionResult> AddCity(RequestCityDto requestCityDto)
         {
-            if (createCityDto == null)
+            if (requestCityDto == null)
             {
                 return BadRequest("City data cannot be null");
             }
 
-            var city = new City(createCityDto.Name);
+            var city = new City(requestCityDto.Name);
             if (string.IsNullOrWhiteSpace(city.Name))
             {
                 return BadRequest("City name cannot be empty");
