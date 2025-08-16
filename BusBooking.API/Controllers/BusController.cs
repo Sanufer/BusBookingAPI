@@ -43,6 +43,28 @@ namespace BusBooking.API.Controllers
             return Ok(responseBusDtos);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBusById(Guid guId)
+        {
+            var bus = await _busBookingRepository.GetRecordByIdAsync(guId);
+            if (bus == null)
+            {
+                return NotFound("Bus not found.");
+            }
+
+            var responseBusDto = new ResponseBusDto
+            {
+                BusNumber = bus.BusNumber,
+                BusType = bus.BusType,
+                AcType = bus.AcType,
+                BusBrand = bus.BusBrand,
+                OperatorId = bus.OperatorId,
+                TotalSeats = bus.TotalSeats
+            };
+
+            return Ok(responseBusDto);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddBus([FromBody] RequestBusDto busDetailsDto)
         {

@@ -24,6 +24,17 @@ namespace BusBooking.API.Controllers
             var listOfCities = await _busBookingRepository.GetAllAsync();
             return Ok(listOfCities);
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid guId)
+        {
+            var city = await _busBookingRepository.GetRecordByIdAsync(guId);
+            if (city == null)
+            {
+                return NotFound("City not found");
+            }
+            return Ok(city);
+        }
          
         [HttpPost]
         public async Task<IActionResult> AddCity(RequestCityDto requestCityDto)

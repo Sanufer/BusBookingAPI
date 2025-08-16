@@ -26,7 +26,7 @@ namespace BusBooking.API.Controllers
             return Ok(busOperators);
         }
 
-        [HttpGet("{guId}")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid guId)
         {
             var busOperator = await _busBookingRepository.GetRecordByIdAsync(guId);

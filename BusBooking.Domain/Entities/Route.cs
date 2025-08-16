@@ -8,7 +8,14 @@ namespace BusBooking.Domain.Entities
         public Guid DestinationCityId { get; private set; }
         public City DestinationCity { get; private set; } = default!;
         public double DistanceKm { get; private set; }
+        public TimeSpan EstimatedDuration { get; private set; }
         private Route() { }
-        public Route(Guid source, Guid destination, double km) { SourceCityId = source; DestinationCityId = destination; DistanceKm = km; }
+        public Route(Guid source, Guid destination, double km, TimeSpan estimatedDuration)
+        {
+            SourceCityId = source;
+            DestinationCityId = destination;
+            DistanceKm = km;
+            EstimatedDuration = estimatedDuration;
+        }
     }
 }
